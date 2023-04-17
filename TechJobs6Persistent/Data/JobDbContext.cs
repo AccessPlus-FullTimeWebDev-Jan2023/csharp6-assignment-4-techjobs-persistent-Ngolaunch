@@ -22,6 +22,7 @@ namespace TechJobs6Persistent.Data
         {
             //set up your connection for one to many (employer to jobs)
 
+
             //set up your connection for many to many (skills to jobs)
         }
     }
