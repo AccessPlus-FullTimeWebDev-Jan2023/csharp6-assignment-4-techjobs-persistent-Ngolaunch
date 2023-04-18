@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using TechJobs6Persistent.Data;
 using TechJobs6Persistent.Models;
 using TechJobs6Persistent.ViewModels;
@@ -15,7 +16,6 @@ namespace TechJobs6Persistent.Controllers
     public class EmployerController : Controller
     {
         private JobDbContext context;
-
         public EmployerController (JobDbContext dbContext)
         {
             context = dbContext;
@@ -24,18 +24,29 @@ namespace TechJobs6Persistent.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            List<Employer> employer = context.Employers.ToList();
+            return View(employer);
         }
-
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            AddEmployerViewModel addEmployerView = new AddEmployerViewModel();
+            return View(addEmployerView);
         }
 
         [HttpPost]
-        public IActionResult ProcessCreateEmployerForm()
+        public IActionResult ProcessCreateEmployerForm(AddEmployerViewModel addEmployerView)
         {
+            if(ModelState.IsValid)
+            {
+                Employer employer = new Employer
+                {
+                    Name = addEmployerView.Name,
+                    Location = addEmployerView.Location
+                };
+                context.Employers.Add(employer);
+                context.SaveChanges();
+            }
             return View();
         }
 
