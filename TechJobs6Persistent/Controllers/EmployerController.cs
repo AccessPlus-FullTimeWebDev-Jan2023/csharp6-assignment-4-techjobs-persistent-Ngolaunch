@@ -46,13 +46,17 @@ namespace TechJobs6Persistent.Controllers
                 };
                 context.Employers.Add(employer);
                 context.SaveChanges();
+                return Redirect("/Employer");
             }
-            return View();
+            return View(addEmployerView);
         }
 
         public IActionResult About(int id)
+
         {
-            return View();
+            Employer employer= context.Employers.Find(id);
+            return View(employer);
+           
         }
 
     }
