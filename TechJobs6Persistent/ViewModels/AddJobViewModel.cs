@@ -7,27 +7,30 @@ namespace TechJobs6Persistent.ViewModels
 {
     public class AddJobViewModel    
     {
-        public string EmployerId { get; set; }
+        public int? EmployerId { get; set; }
 
         [Required(ErrorMessage = "name is required")]
         [StringLength(50, ErrorMessage = "name too long,must be between1-50 characters!")]
 
         public string Name { get; set; }
-        public List<SelectListItem> Employers { get; set; }
+        public List<SelectListItem>? employers { get; set; }
 
-        public AddJobViewModel(List<Employer> employers)
+        public AddJobViewModel(List<Employer> theEmployers)
         {
-            Employers = new List<SelectListItem>();
+            employers = new List<SelectListItem>();
 
-            foreach (var employer in employers)
+            foreach (var employer in theEmployers)
             {
-                Employers.Add(new SelectListItem
+                employers.Add(new SelectListItem
                 {
                     Value = employer.Id.ToString(),
                     Text = employer.Name
                 });
             }
         }
+        public AddJobViewModel() 
+        { 
+        }    
 
     }
 }

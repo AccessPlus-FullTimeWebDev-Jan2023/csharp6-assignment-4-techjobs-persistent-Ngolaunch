@@ -5,6 +5,8 @@ namespace TechJobs6Persistent.Models
 {
     public class Job
     {
+        internal object Jobs;
+
         public int Id { get; set; }
         public string Name { get; set; }
 
