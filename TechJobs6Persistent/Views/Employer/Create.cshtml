@@ -1,7 +1,7 @@
 ﻿@model TechJobs6Persistent.ViewModels.AddEmployerViewModel 
 <h1>Add New Employer</h1>
 
-<form asp-controller="Employer" asp-action="ProcessCreateEmployerForm" method="post">
+<form asp-controller="Employer" asp-action="Create" method="post">
 
     <div class="form-group">
         <label asp-for="Name">Employer Name</label>
@@ -16,8 +16,6 @@
          <input asp-for="Location" />
         <span asp-validation-for="Location"></span>
     </div>
-
-    <br />
 
     <input type="submit" value="Add Employer" />
 

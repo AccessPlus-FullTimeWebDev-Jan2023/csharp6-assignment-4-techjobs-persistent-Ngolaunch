@@ -35,7 +35,7 @@ namespace TechJobs6Persistent.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProcessCreateEmployerForm(AddEmployerViewModel addEmployerView)
+        public IActionResult Create(AddEmployerViewModel addEmployerView)
         {
             if(ModelState.IsValid)
             {
