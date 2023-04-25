@@ -39,6 +39,7 @@ namespace TechJobs6Persistent.Controllers
         {
             if(ModelState.IsValid)
             {
+   
                 Employer employer = new Employer
                 {
                     Name = addEmployerView.Name,
@@ -48,7 +49,7 @@ namespace TechJobs6Persistent.Controllers
                 context.SaveChanges();
                 return Redirect("/Employer");
             }
-            return View(addEmployerView);
+            return View("Create",addEmployerView);
         }
 
         public IActionResult About(int id)

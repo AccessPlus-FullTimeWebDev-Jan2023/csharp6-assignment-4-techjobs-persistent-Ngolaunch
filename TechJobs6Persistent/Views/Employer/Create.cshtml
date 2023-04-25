@@ -5,7 +5,7 @@
 
     <div class="form-group">
         <label asp-for="Name">Employer Name</label>
-        <input asp-for="Name" />
+        <input asp-for="@Model.Name" />
         <span asp-validation-for="Name"></span>
     </div>
 
@@ -13,7 +13,7 @@
     
     <div class="form-group">
         <label asp-for="Location">Employer Location</label>
-         <input asp-for="Location" />
+         <input asp-for="@Model.Location" />
         <span asp-validation-for="Location"></span>
     </div>
 

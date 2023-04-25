@@ -9,7 +9,7 @@ namespace TechJobs6Persistent.ViewModels
     {
         public int? EmployerId { get; set; }
 
-        [Required(ErrorMessage = "name is required")]
+        [Required(ErrorMessage = "Job name is required")]
         [StringLength(50, ErrorMessage = "name too long,must be between1-50 characters!")]
 
         public string Name { get; set; }
