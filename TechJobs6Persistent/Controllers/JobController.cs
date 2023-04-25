@@ -46,13 +46,14 @@ namespace TechJobs6Persistent.Controllers
                 Job newJob = new Job
                 {
                     Name = addJobViewModel.Name,
-                    Employer =theemployer
+                    Employer = theemployer
                 };
 
                 context.Jobs.Add(newJob);
                 context.SaveChanges();
                 return Redirect("/Job");
             }
+            
             return View(addJobViewModel);
         }
 
